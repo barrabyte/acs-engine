@@ -1,0 +1,9 @@
+"extensionProfiles": [
+    {
+        "name": "dgx-dns",
+        "version": "v1",
+        "extensionParameters": "DOMAINNAME",
+        "rootURL": "https://github.com/barrabyte/acs-engine/extensions/",
+        "script": "dhclient-update.sh"
+    }
+],
