@@ -3,7 +3,7 @@
         "name": "dgx-dns",
         "version": "v1",
         "extensionParameters": "DOMAINNAME",
-        "rootURL": "https://github.com/barrabyte/acs-engine/extensions/",
+        "rootURL": "https://github.com/barrabyte/acs-engine/",
         "script": "dhclient-update.sh"
     }
 ],
