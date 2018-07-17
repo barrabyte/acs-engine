@@ -23,6 +23,16 @@ caTargetPath=$3
 echo $(date -Iseconds) " Starting dgxPreProvision"
 
   #
+  # MEDPLUS CA CERTS
+  #
+  echo $(date -Iseconds) " ..Starting MedPlus CA Install"
+    echo $(date -Iseconds) " ....Download CA"
+    curl -k ${caSourceUri} -o ${caTargetPath}
+    echo $(date -Iseconds) " ....Update CA Certificates"
+    update-ca-certificates
+  echo $(date -Iseconds) " ..Done MedPlus CA Install"
+
+  #
   # HYBRID DNS
   #
   echo $(date -Iseconds) " ..Starting Hybrid DNS"
@@ -35,16 +45,6 @@ echo $(date -Iseconds) " Starting dgxPreProvision"
     echo $(date -Iseconds) " ....Restarting network"
     sudo ifdown eth0 && sudo ifup eth0
   echo $(date -Iseconds) " ..Done Hybrid DNS"
-
-  #
-  # MEDPLUS CA CERTS
-  #
-  echo $(date -Iseconds) " ..Starting MedPlus CA Install"
-    echo $(date -Iseconds) " ....Download CA"
-    curl -k ${caSourceUri} -o ${caTargetPath}
-    echo $(date -Iseconds) " ....Update CA Certificates"
-    update-ca-certificates
-  echo $(date -Iseconds) " ..Done MedPlus CA Install"
 
 echo $(date -Iseconds) " Done dgxPreProvision"
 
