@@ -26,16 +26,14 @@ echo $(date -Iseconds) " Starting dgxPreProvision"
   # HYBRID DNS
   #
   echo $(date -Iseconds) " ..Starting Hybrid DNS"
-  if ! grep -Fq "${domainName}" /etc/dhcp/dhclient.conf
-  then
-    echo $(date -Iseconds) " ....Adding domain to dhclient.conf"
-    echo "supersede domain-name \"${domainName}\";" >> /etc/dhcp/dhclient.conf
-    echo "prepend domain-search \"${domainName}\";" >> /etc/dhcp/dhclient.conf
-  fi
-
-  echo $(date -Iseconds) " ....Restarting network"
-  sudo ifdown eth0 && sudo ifup eth0
-
+    if ! grep -Fq "${domainName}" /etc/dhcp/dhclient.conf
+    then
+      echo $(date -Iseconds) " ....Adding domain to dhclient.conf"
+      echo "supersede domain-name \"${domainName}\";" >> /etc/dhcp/dhclient.conf
+      echo "prepend domain-search \"${domainName}\";" >> /etc/dhcp/dhclient.conf
+    fi
+    echo $(date -Iseconds) " ....Restarting network"
+    sudo ifdown eth0 && sudo ifup eth0
   echo $(date -Iseconds) " ..Done Hybrid DNS"
 
   #
@@ -43,7 +41,7 @@ echo $(date -Iseconds) " Starting dgxPreProvision"
   #
   echo $(date -Iseconds) " ..Starting MedPlus CA Install"
     echo $(date -Iseconds) " ....Download CA"
-    curl -k $caCourceUri -o $caTargetPath
+    curl -k ${caSourceUri} -o ${caTargetPath}
     echo $(date -Iseconds) " ....Update CA Certificates"
     update-ca-certificates
   echo $(date -Iseconds) " ..Done MedPlus CA Install"
