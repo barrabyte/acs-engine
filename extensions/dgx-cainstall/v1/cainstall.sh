@@ -1,11 +1,13 @@
 #!/bin/bash
 
 #
+#
 # Download and install a Certificate of Authority
 #
 # Note:
 #   This script will supports ubuntu. It has not been tested on other flavours
 #   of linux
+#
 
 set -e
 
