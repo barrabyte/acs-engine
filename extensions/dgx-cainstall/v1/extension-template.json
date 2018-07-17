@@ -1,0 +1,12 @@
+"extensionProfiles": [
+    {
+        "name": "dgx-cainstall",
+        "version": "v1",
+        "extensionParameters": [
+          "sourceUri",
+          "targetPath"
+        ]
+        "rootURL": "http://dgxk8scodedev.blob.core.windows.net/",
+        "script": "cainstall.sh"
+    }
+],
